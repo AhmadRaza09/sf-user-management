@@ -1,11 +1,18 @@
 package com.ahmad.sfusermanagement.model;
 
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import java.time.LocalDate;
 
-public class User extends BaseEntity{
+@Entity
+public class Users extends BaseEntity {
+
     private String firstName;
     private String lastName;
     private LocalDate birthDate;
+
+    @OneToOne
+    private Role role;
 
     public String getFirstName() {
         return firstName;
@@ -29,5 +36,13 @@ public class User extends BaseEntity{
 
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }
